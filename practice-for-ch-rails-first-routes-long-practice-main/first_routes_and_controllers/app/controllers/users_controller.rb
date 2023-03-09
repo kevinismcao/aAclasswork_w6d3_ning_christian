@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
     def index
-        render json: User.all
+        if params[:username]
+            user = User.where(users: {username: params[:username]})
+            render json: user
+        else
+            render json: User.all
+        end
     end
 
     def create
@@ -36,6 +41,8 @@ class UsersController < ApplicationController
         redirect_to users_url
 
     end
+
+   
 
     private
     
