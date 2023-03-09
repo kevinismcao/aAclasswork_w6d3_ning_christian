@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     def update
         wildcard = params[:id]
         user = User.find(wildcard)
-        if user && user.update
+        if user && user.update(params.require(:user).permit(:email))
             redirect_to user_url(user.id)
         else  
             render json: user.errors.full_messages, status: :unprocessable_entity
@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     end
 
     def destroy
+        wildcard = params[:id]
+        user = User.find(wildcard)
+        user.destroy
+        redirect_to users_url
 
     end
 end
