@@ -50,3 +50,27 @@ ArtworkShare.create!(artwork_id: 7, viewer_id: 8)
 ArtworkShare.create!(artwork_id: 7, viewer_id: 9)
 ArtworkShare.create!(artwork_id: 8, viewer_id: 9)
 ArtworkShare.create!(artwork_id: 8, viewer_id: 10)
+
+
+Comment.create!(author_id: 3, artwork_id: 2, body: "Nice painting!")
+Comment.create!(author_id: 2, artwork_id: 4, body: "I hate this drawing!")
+Comment.create!(author_id: 4, artwork_id: 1, body: "Fantastic")
+Comment.create!(author_id: 2, artwork_id: 3, body: "Cooooooool")
+Comment.create!(author_id: 5, artwork_id: 3, body: "Awesome")
+Comment.create!(author_id: 1, artwork_id: 1, body: "BRAVO!!!!")
+Comment.create!(author_id: 1, artwork_id: 2, body: "Like it!")
+Comment.create!(author_id: 6, artwork_id: 5, body: "Great job")
+
+
+Like.create!(liker_id:1, likeable_type: 'Artwork', likeable_id: 6)
+Like.create!(liker_id:3, likeable_type: 'Artwork', likeable_id: 4)
+Like.create!(liker_id:4, likeable_type: 'Comment', likeable_id: 2)
+Like.create!(liker_id:3, likeable_type: 'Artwork', likeable_id: 1)
+Like.create!(liker_id:6, likeable_type: 'Comment', likeable_id: 3)
+Like.create!(liker_id:6, likeable_type: 'Artwork', likeable_id: 7)
+Like.create!(liker_id:7, likeable_type: 'Comment', likeable_id: 3)
+Like.create!(liker_id:2, likeable_type: 'Comment', likeable_id: 5)
+Like.create!(liker_id:8, likeable_type: 'Comment', likeable_id: 3)
+
+
+

@@ -1,7 +1,9 @@
+require 'byebug'
 class UsersController < ApplicationController
 
     def index
         if params[:username]
+            
             user = User.where(users: {username: params[:username]})
             render json: user
         else
@@ -47,7 +49,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:user).permit(:username)
+        params.require(:users).permit(:username)
     end
 
 end

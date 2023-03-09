@@ -27,7 +27,12 @@ class User < ApplicationRecord
         source: :artwork
 
     has_many :comments, 
-    foreign_key: :author_id, 
-    class_name: :Comment, 
-    dependent: :destroy
+        foreign_key: :author_id, 
+        class_name: :Comment, 
+        dependent: :destroy
+
+    has_many :likes,
+        foreign_key: :liker_id,
+        class_name: :Like
+
 end
