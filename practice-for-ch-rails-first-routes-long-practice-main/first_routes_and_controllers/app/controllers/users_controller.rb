@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     end
 
     def create
-       user = User.new(params.require(:user).permit(:name, :email))
+       user = User.new(user_params)
         if user.save
             render json: user
         else
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     def update
         wildcard = params[:id]
         user = User.find(wildcard)
-        if user && user.update(params.require(:user).permit(:email))
+        if user && user.update(user_params)
             redirect_to user_url(user.id)
         else  
             render json: user.errors.full_messages, status: :unprocessable_entity
@@ -36,4 +36,11 @@ class UsersController < ApplicationController
         redirect_to users_url
 
     end
+
+    private
+    
+    def user_params
+        params.require(:user).permit(:username)
+    end
+
 end
