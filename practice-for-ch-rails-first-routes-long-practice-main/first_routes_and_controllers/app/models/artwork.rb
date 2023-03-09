@@ -10,8 +10,8 @@
 #  updated_at :datetime         not null
 #
 class Artwork < ApplicationRecord
-    validates :title, :image_url, :artist_id, presence: true
-    validates :index_artworks_on_title_and_artist_id, uniqueness: true
+    validates :title, :image_url, presence: true
+   
 
     belongs_to :artist,
         foreign_key: :artist_id,
